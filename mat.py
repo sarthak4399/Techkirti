@@ -2,6 +2,7 @@
 import cv2
 import numpy as np 
 import os 
+import matplotlib.pyplot as pp
 # __________________***____________________
 image = cv2.imread("images/mat.png")
 cnv_gray= cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
@@ -101,18 +102,20 @@ for filename in os.listdir(directory):
         #     b ,g,r = cv2.split(cont)
         # cv2.imshow('Image with center', frame)
         # __________________***____________________
-        print("--------*BINARY FORM*--------\n")
+        # print("--------*BINARY FORM*--------")
         b ,g ,r = mean
         if 200 <= b <= 255 and 200 <= g <= 255 and 200 <= r <= 255:
              print(" BINARY ==> 1")
         else:
             print(" BINARY ==> 0")
-            
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
         # __________________***____________________
     else:
         print("no contour picture found")
+
+
 print("--------*PROGRAM ENDED *--------\n")
 cv2.destroyAllWindows()
 #  Date : sun 12 march 2023 4:51pm
