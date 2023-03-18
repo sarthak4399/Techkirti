@@ -95,7 +95,7 @@ while (cap.isOpened()):
                 else:
                     print(" BINARY ==> 0")
                 time.sleep(5)
-
+# ------------**------------ #
 # import cv2
 
 # cap = cv2.VideoCapture(0)
@@ -113,7 +113,6 @@ while (cap.isOpened()):
 #         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 #         crop_img = frame[y:y + h, x:x + w]
 #         cv2.imshow('cropped', crop_img)
-
 #     cv2.drawContours(frame, contours, -1, (0, 255, 0), 2)
 #     cv2.imshow('frame',frame)
 #     if cv2.waitKey(1) == ord('q'):
@@ -121,3 +120,4 @@ while (cap.isOpened()):
 
 # cap.release()
 # cv2.destroyAllWindows()
+# ------------**------------ #

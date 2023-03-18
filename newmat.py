@@ -7,10 +7,8 @@ while True:
         break
     frame = cv2.resize(frame, (300, 300))
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
     _, thresh = cv2.threshold(blur, 70, 255, cv2.THRESH_BINARY_INV)
-
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
     thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -29,5 +27,9 @@ while True:
     cv2.imshow("Frame", frame)
     if cv2.waitKey(1) == ord('q'):
         break
+    cv2.imshow("gray",thresh)
 cap.release()
 cv2.destroyAllWindows()
+
+
+
