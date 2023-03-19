@@ -30,6 +30,3 @@ while True:
     cv2.imshow("gray",thresh)
 cap.release()
 cv2.destroyAllWindows()
-
-
-

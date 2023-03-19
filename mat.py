@@ -4,7 +4,7 @@ import numpy as np
 import os 
 import matplotlib.pyplot as pp
 # __________________***____________________
-image = cv2.imread("images/mat.png")
+image = cv2.imread("images/mat2.png")
 cnv_gray= cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 _,thresh= cv2.threshold(cnv_gray,127,255,cv2.THRESH_BINARY)
 contours, herarchy= cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -33,6 +33,7 @@ for i, contour in enumerate(contours):
     print("--------*END*--------\n")
 # __________________*GETTING CROP CONTOURE IMAGES FROM DIRECTORY PRINTING FILE PATH  *____________________
 directory ="images/contour"
+s = ""
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)
     print(" File Path ===> ",f)
@@ -104,17 +105,32 @@ for filename in os.listdir(directory):
         # __________________***____________________
         # print("--------*BINARY FORM*--------")
         b ,g ,r = mean
+        
         if 200 <= b <= 255 and 200 <= g <= 255 and 200 <= r <= 255:
+             s +='1'
              print(" BINARY ==> 1")
         else:
+            s += '0'
             print(" BINARY ==> 0")
+            
         
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
         # __________________***____________________
     else:
         print("no contour picture found")
+s = int(s)
+pr = s
+print("\n\n", type(s))
 
+decimal, i = 0, 0
+while(s!= 0):
+    dec = s % 10
+    decimal = decimal + dec * pow(2, i)
+    s = s//10
+    i += 1
+
+print("Decimal equivalent to ",pr, " = ",decimal)
 
 print("--------*PROGRAM ENDED *--------\n")
 cv2.destroyAllWindows()
